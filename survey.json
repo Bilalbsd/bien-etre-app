@@ -1,0 +1,29 @@
+{
+    "questions": {
+      "depression": [
+        "Êtes-vous souvent triste ou déprimé ces derniers temps?",
+        "Avez-vous perdu de l'intérêt pour des activités qui vous plaisaient autrefois?"
+      ],
+      "anxiete": [
+        "Êtes-vous souvent préoccupé par l'avenir et par des événements futurs?",
+        "Ressentez-vous fréquemment une tension ou une nervosité sans raison apparente?"
+      ],
+      "relations_sociales": [
+        "Avez-vous du mal à établir des relations avec vos pairs?",
+        "Éprouvez-vous des difficultés à vous exprimer en public ou à participer à des activités de groupe?"
+      ],
+      "estime_de_soi": [
+        "Êtes-vous généralement satisfait de vous-même?",
+        "Avez-vous tendance à vous critiquer fréquemment?"
+      ],
+      "stress_academique": [
+        "Vous sentez-vous souvent dépassé par la charge de travail académique?",
+        "Avez-vous des difficultés à gérer le stress lié aux examens?"
+      ],
+      "equilibre_travail_vie_personnelle": [
+        "Trouvez-vous difficile de concilier vos obligations académiques avec votre vie personnelle?",
+        "Avez-vous le sentiment de ne pas avoir suffisamment de temps pour vous détendre et vous reposer?"
+      ]
+    }
+  }
+  
