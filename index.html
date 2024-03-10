@@ -1,32 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <title>Sondage Bien-être Étudiants</title>
-</head>
-<body class="bg-gray-200 p-8">
-  <div id="app" class="max-w-lg mx-auto bg-white p-6 rounded-md shadow-md">
-    <h1 class="text-2xl font-bold mb-4">Sondage Bien-être Étudiants</h1>
-
-    <!-- Questions du sondage générées dynamiquement -->
-    <div id="questions"></div>
-
-    <!-- Bouton pour soumettre le sondage -->
-    <button onclick="submitSurvey()" class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4">Soumettre</button>
-
-    <!-- Résultats du sondage -->
-    <div id="results" class="mt-8 hidden">
-      <h2 class="text-xl font-bold mb-4">Résultats du Sondage</h2>
-
-      <!-- Graphique et camembert -->
-      <canvas id="chart" width="400" height="400"></canvas>
-      <canvas id="pieChart" width="400" height="400"></canvas>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="survey.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
