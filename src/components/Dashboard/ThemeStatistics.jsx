@@ -41,7 +41,7 @@ const ThemeStatistics = () => {
 
   return (
     <div className="theme-statistics" style={{ textAlign: 'center', padding: '20px' }}>
-      <h1 style={{ marginBottom: '20px' }}>Statistiques du thème {themeId}</h1>
+      <h1 style={{ marginBottom: '20px', fontSize: '2.5rem'}}>Statistiques du thème {themeId}</h1>
       <div style={{ marginBottom: '40px' }}>
         <h2 style={{ marginBottom: '10px' }}>Score moyen :</h2>
         <p>{themeStats.averageScore.toFixed(2)}</p>
@@ -55,6 +55,7 @@ const ThemeStatistics = () => {
           </div>
         </div>
       </div>
+      
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '80%' }}>
           <h2 style={{ marginBottom: '10px' }}>Répartition des notes moyennes pour chaque question (5 en tout)</h2>

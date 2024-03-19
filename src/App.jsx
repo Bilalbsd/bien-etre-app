@@ -12,6 +12,7 @@ import Register from './components/Auth/Register';
 import Welcome from './components/Dashboard/Welcome';
 import ThemeStatistics from './components/Dashboard/ThemeStatistics';
 import Questionnaire from './components/Dashboard/Questionnaire';
+import { AuthProvider } from './context/AuthProvider';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // État pour suivre si l'utilisateur est connecté
@@ -19,20 +20,22 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <Navbar isLoggedIn={isLoggedIn} /> {/* Passez l'état isLoggedIn à la barre de navigation */}
-        <Routes>
-          <Route exact path="/" element={<Welcome />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/login" element={<Login />} /> 
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/profil" element={<Profil />} />
-          <Route exact path="/statistics" element={<Statistics />} />
-          <Route path="/theme/:themeId" element={<ThemeStatistics />} />
-          <Route path="/:themeId" element={<Questionnaire />} />
-        </Routes>
-        <Footer />
-      </div>
+      <AuthProvider>
+        <div className="App">
+          <Navbar isLoggedIn={isLoggedIn} /> {/* Passez l'état isLoggedIn à la barre de navigation */}
+          <Routes>
+            <Route exact path="/" element={<Welcome />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
+            <Route exact path="/login" element={<Login />} /> 
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/profil" element={<Profil />} />
+            <Route exact path="/statistics" element={<Statistics />} />
+            <Route path="/theme/:themeId" element={<ThemeStatistics />} />
+            <Route path="/:themeId" element={<Questionnaire />} />
+          </Routes>
+          <Footer />
+        </div>
+      </AuthProvider>
     </Router>
   );
 }
