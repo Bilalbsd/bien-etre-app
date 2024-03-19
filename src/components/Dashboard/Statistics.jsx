@@ -1,48 +1,98 @@
-import React from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
-
-ChartJS.register(ArcElement, Tooltip, Legend);
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Importez Link depuis react-router-dom
+import questionsData from '../../data/questions.json'; // Chemin d'accès au fichier de données
 
 const Statistics = () => {
+  const themes = questionsData.themes || [];
+  const [themeStatistics, setThemeStatistics] = useState({});
+  const [lastQuestionnaire, setLastQuestionnaire] = useState(null);
 
-  const data = {
-    labels: ['Stress', 'Anxiété', 'Dépression', 'Qualité du someil'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [12, 19, 3, 5],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
+  useEffect(() => {
+    const storedResponses = JSON.parse(localStorage.getItem('questionnaireResponses')) || [];
+
+    const newThemeStatistics = {};
+    themes.forEach((theme) => {
+      let totalScore = 0;
+      let responseCount = 0;
+
+      const themeResponses = storedResponses.filter(response => response.themeId === theme.id);
+      themeResponses.forEach((response) => {
+        responseCount += 5;
+        totalScore += response.responses.reduce((acc, score) => acc + score, 0);
+      });
+
+      const averageScore = responseCount === 0 ? 0 : totalScore / responseCount;
+
+      let smiley;
+      if (averageScore <= 1) {
+        smiley = '😢';
+      } else if (averageScore <= 2) {
+        smiley = '😞';
+      } else if (averageScore <= 3) {
+        smiley = '😐';
+      } else if (averageScore <= 4) {
+        smiley = '😊';
+      } else {
+        smiley = '😄';
+      }
+
+      newThemeStatistics[theme.id] = { averageScore, smiley };
+    });
+
+    setThemeStatistics(newThemeStatistics);
+
+    const lastResponse = storedResponses.length > 0 ? storedResponses[storedResponses.length - 1] : null;
+    setLastQuestionnaire(lastResponse);
+  }, [themes]);
+
+  const calculateAverageScore = (responses) => {
+    if (!responses || responses.length === 0) return '-';
+    const totalScore = responses.reduce((acc, score) => acc + score, 0);
+    const averageScore = totalScore / responses.length;
+    return averageScore.toFixed(2);
   };
 
-    return (
-      <>
-        <h1>Statistics</h1>
-        <div className="flex justify-center items-center mt-10">
-            <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <Doughnut data={data} />
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1 style={{ textAlign: 'center' }}>Statistiques</h1>
+      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+        {themes.map((theme) => (
+          <Link key={theme.id} to={`/theme/${theme.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div
+              style={{
+                width: '200px',
+                height: '200px',
+                backgroundColor: theme.color,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                margin: '10px',
+                borderRadius: '10px',
+                cursor: 'pointer',
+              }}
+            >
+              <p style={{ color: 'white', fontSize: '18px', textAlign: 'center' }}>{theme.id}</p>
+              <p style={{ color: 'white', fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>
+                {themeStatistics[theme.id] ? themeStatistics[theme.id].averageScore.toFixed(2) : '-'}
+              </p>
+              <p style={{ color: 'white', fontSize: '36px', textAlign: 'center' }}>
+                {themeStatistics[theme.id] ? themeStatistics[theme.id].smiley : '-'}
+              </p>
             </div>
+          </Link>
+        ))}
+      </div>
+      
+      {lastQuestionnaire && (
+        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+          <h2>Dernier questionnaire :</h2>
+          <p>Thème : {lastQuestionnaire.themeId}</p>
+          <p>Score moyen des questions : {calculateAverageScore(lastQuestionnaire.responses)}</p>
         </div>
-      </>
-    )
-}
+      )}
+    </div>
+  );
+};
 
 export default Statistics;
