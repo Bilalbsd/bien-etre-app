@@ -53,45 +53,46 @@ const Statistics = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1 style={{ textAlign: 'center' }}>Statistiques</h1>
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-        {themes.map((theme) => (
-          <Link key={theme.id} to={`/theme/${theme.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div
-              style={{
-                width: '200px',
-                height: '200px',
-                backgroundColor: theme.color,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                margin: '10px',
-                borderRadius: '10px',
-                cursor: 'pointer',
-              }}
-            >
-              <p style={{ color: 'white', fontSize: '18px', textAlign: 'center' }}>{theme.id}</p>
-              <p style={{ color: 'white', fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>
-                {themeStatistics[theme.id] ? themeStatistics[theme.id].averageScore.toFixed(2) : '-'}
-              </p>
-              <p style={{ color: 'white', fontSize: '36px', textAlign: 'center' }}>
-                {themeStatistics[theme.id] ? themeStatistics[theme.id].smiley : '-'}
-              </p>
-            </div>
-          </Link>
-        ))}
-      </div>
-      
-      {lastQuestionnaire && (
-        <div style={{ marginTop: '20px', textAlign: 'center' }}>
-          <h2>Dernier questionnaire :</h2>
-          <p>Thème : {lastQuestionnaire.themeId}</p>
-          <p>Score moyen des questions : {calculateAverageScore(lastQuestionnaire.responses)}</p>
+<div style={{ padding: '20px' }}>
+  <h1 style={{ textAlign: 'center', fontSize: '35px', fontWeight: 'bold' }}>Statistiques</h1>
+  <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+    {themes.map((theme) => (
+      <Link key={theme.id} to={`/theme/${theme.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <div
+          style={{
+            width: '350px', // Largeur augmentée pour les cartes
+            height: '350px', // Hauteur augmentée pour les cartes
+            backgroundColor: theme.color,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '10px',
+            borderRadius: '10px',
+            cursor: 'pointer',
+          }}
+        >
+          <p style={{ color: 'white', fontSize: '34px', textAlign: 'center', fontWeight: 'bold' }}>{theme.id.toUpperCase()}</p> {/* Taille de la police augmentée */}
+          <p style={{ color: 'white', fontSize: '36px', fontWeight: 'bold', textAlign: 'center' }}>
+            {themeStatistics[theme.id] ? themeStatistics[theme.id].averageScore.toFixed(2) : '-'}
+          </p>
+          <p style={{ color: 'white', fontSize: '60px', textAlign: 'center' }}> {/* Taille de la police augmentée */}
+            {themeStatistics[theme.id] ? themeStatistics[theme.id].smiley : '-'}
+          </p>
         </div>
-      )}
+      </Link>
+    ))}
+  </div>
+  
+  {lastQuestionnaire && (
+    <div style={{ marginTop: '20px', textAlign: 'center' }}>
+      <h2>Dernier questionnaire :</h2>
+      <p>Thème : {lastQuestionnaire.themeId}</p>
+      <p>Score moyen des questions : {calculateAverageScore(lastQuestionnaire.responses)}</p>
     </div>
+  )}
+</div>
+
   );
 };
 

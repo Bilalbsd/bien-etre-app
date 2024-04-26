@@ -11,7 +11,7 @@ function LineChart({ scoreEvolution }) {
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: scoreEvolution.map((_, index) => `Questionnaire ${index + 1}`),
+                    labels: scoreEvolution.map((_, index) => `JOUR ${index + 1}`),
                     datasets: [{
                         label: 'Score', data: scoreEvolution, fill: false,
                         borderColor: 'rgb(75, 192, 192)', tension: 0.1
