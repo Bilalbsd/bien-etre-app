@@ -1,0 +1,108 @@
+{
+  "themes": [
+    {
+      "id": "alimentation",
+      "color": "#f5428d",
+      "questions": [
+        {
+          "id": "alim-1",
+          "question": "Sur une échelle de 1 à 5, comment évaluez-vous votre satisfaction par rapport à vos repas aujourd'hui ?"
+        },
+        {
+          "id": "alim-2",
+          "question": "À quelle fréquence avez-vous consommé des aliments riches en nutriments aujourd'hui ?"
+        },
+        {
+          "id": "alim-3",
+          "question": "Avez-vous respecté votre plan alimentaire aujourd'hui ?"
+        },
+        {
+          "id": "alim-4",
+          "question": "Sur une échelle de 1 à 5, comment évaluez-vous votre niveau d'hydratation aujourd'hui ?"
+        },
+        {
+          "id": "alim-5",
+          "question": "À quelle fréquence avez-vous consommé des collations saines aujourd'hui ?"
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "color": "#3CB371 ",
+      "questions": [
+        {
+          "id": "sport-1",
+          "question": "Sur une échelle de 1 à 5, comment évaluez-vous votre niveau d'activité physique aujourd'hui ?"
+        },
+        {
+          "id": "sport-2",
+          "question": "Combien de minutes avez-vous consacré à l'exercice physique aujourd'hui ?"
+        },
+        {
+          "id": "sport-3",
+          "question": "À quelle fréquence avez-vous pratiqué une activité sportive qui vous passionne aujourd'hui ?"
+        },
+        {
+          "id": "sport-4",
+          "question": "Comment évaluez-vous votre niveau d'effort pendant votre séance d'entraînement aujourd'hui ?"
+        },
+        {
+          "id": "sport-5",
+          "question": "Quelle proportion de votre journée a été consacrée à des activités physiques ou sportives aujourd'hui ?"
+        }
+      ]
+    },
+    {
+      "id": "humeur",
+      "color": "#4682B4",
+      "questions": [
+        {
+          "id": "humeur-1",
+          "question": "Sur une échelle de 1 à 5, comment évaluez-vous votre niveau de stress aujourd'hui ?"
+        },
+        {
+          "id": "humeur-2",
+          "question": "À quelle fréquence avez-vous ressenti de l'anxiété aujourd'hui ?"
+        },
+        {
+          "id": "humeur-3",
+          "question": "Comment évaluez-vous votre niveau d'énergie aujourd'hui ?"
+        },
+        {
+          "id": "humeur-4",
+          "question": "Sur une échelle de 1 à 5, comment évaluez-vous votre qualité de sommeil de la nuit dernière ?"
+        },
+        {
+          "id": "humeur-5",
+          "question": "Quelle proportion de votre journée a été marquée par des émotions positives aujourd'hui ?"
+        }
+      ]
+    },
+    {
+      "id": "cours",
+      "color": "#FFD700",
+      "questions": [
+        {
+          "id": "cours-1",
+          "question": "Combien d'heures avez-vous passé à étudier aujourd'hui ?"
+        },
+        {
+          "id": "cours-2",
+          "question": "Quelle proportion de vos cours aujourd'hui était interactive ou participative ?"
+        },
+        {
+          "id": "cours-3",
+          "question": "À quelle fréquence avez-vous eu du mal à vous concentrer pendant vos cours aujourd'hui ?"
+        },
+        {
+          "id": "cours-4",
+          "question": "Comment évaluez-vous votre niveau de compréhension des sujets étudiés aujourd'hui ?"
+        },
+        {
+          "id": "cours-5",
+          "question": "Avez-vous rencontré des difficultés particulières dans l'apprentissage aujourd'hui ?"
+        }
+      ]
+    }
+  ]
+}

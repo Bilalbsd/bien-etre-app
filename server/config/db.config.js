@@ -1,7 +1,7 @@
 // config/db.config.js
 module.exports = {
     HOST: "localhost",
-    USER: "root",
+    USER: "user",
     PASSWORD: "",
     DB: "wellness",
     dialect: "mysql",

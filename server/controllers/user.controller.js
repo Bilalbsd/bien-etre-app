@@ -63,9 +63,17 @@ exports.getUserById = async (req, res) => {
 exports.updateUserById = async (req, res) => {
   try {
     const { id } = req.params;
-    const { email, password, firstName, lastName, activity, image } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    await User.update({ email, password: hashedPassword, firstName, lastName, activity, image }, { where: { id } });
+    const { firstName, lastName, activity } = req.body; // Seuls les champs à mettre à jour sont récupérés
+    const updatedFields = {}; // Initialiser un objet pour stocker les champs mis à jour
+
+    // Vérifier et ajouter les champs à mettre à jour
+    if (firstName) updatedFields.firstName = firstName;
+    if (lastName) updatedFields.lastName = lastName;
+    if (activity) updatedFields.activity = activity;
+
+    // Mettre à jour l'utilisateur avec les champs mis à jour
+    await User.update(updatedFields, { where: { id } });
+
     res.status(200).json({ message: 'User updated successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Failed to update user', error: error.message });

@@ -1,24 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import questionsData from '../../data/questions.json'; // Adaptez le chemin d'accès selon votre structure
 import { useParams, useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios'; // Importer Axios
 
 const Questionnaire = () => {
   const { themeId } = useParams(); // Récupérer le themeId depuis les paramètres d'itinéraire
   const navigate = useNavigate();
 
-  // Filtrer les questions basées sur le themeId
-  const themeQuestions = questionsData.themes.find(theme => theme.id === themeId)?.questions || [];
-
+  // Déclaration de l'état pour les questions
+  const [questions, setQuestions] = useState([]);
+  
   // Créer un état pour stocker les réponses
-  const [responses, setResponses] = useState(themeQuestions.map(() => 0));
+  const [responses, setResponses] = useState([]);
+
   // État pour suivre le pourcentage de progression
   const [progressPercentage, setProgressPercentage] = useState(0);
 
+  useEffect(() => {
+    // Fonction pour récupérer les questions depuis le serveur avec Axios
+    const fetchQuestions = async () => {
+      try {
+        // Faire une requête GET pour récupérer les questions du thème spécifié
+        const response = await axios.get(`http://localhost:3000/api/questions/${themeId}`);
+        // Extraire les données de la réponse
+        const data = response.data;
+        // Mettre à jour l'état des questions avec les données récupérées
+        setQuestions(data);
+        // Initialiser les réponses avec des valeurs par défaut
+        setResponses(new Array(data.length).fill(null));
+
+
+      } catch (error) {
+        console.error('Erreur lors de la récupération des questions:', error);
+      }
+    };
+
+    fetchQuestions();
+  }, [themeId]);
+
+  // Fonction pour gérer le changement de réponse à une question
   const handleInputChange = (index, value) => {
     setResponses(responses.map((response, i) => (i === index ? value : response)));
   };
 
+  // Fonction pour enregistrer les réponses et naviguer vers la page des statistiques
   const saveResponses = (responses, themeId) => {
     // Récupérer les réponses précédentes
     const storedResponses = JSON.parse(localStorage.getItem('questionnaireResponses')) || [];
@@ -38,24 +62,24 @@ const Questionnaire = () => {
     saveResponses(responses, themeId);
     // Calculer le pourcentage de progression
     const filledResponses = responses.filter(Boolean);
-    const percentage = (filledResponses.length / themeQuestions.length) * 100;
+    const percentage = (filledResponses.length / responses.length) * 100;
     setProgressPercentage(percentage);
     // Rediriger vers la page statistique
     navigate(`/statistics`);
   };
 
   useEffect(() => {
-    // Calculer le pourcentage de progression
     const filledResponses = responses.filter(Boolean);
-    const percentage = (filledResponses.length / themeQuestions.length) * 100;
+    const percentage = (filledResponses.length / questions.length) * 100;
     setProgressPercentage(percentage);
-  }, [responses, themeQuestions]);
+  }, [responses, questions]);
+
 
   return (
     <div className="container mt-5">
       <h1 className="modal-title text-center mb-4">Questionnaire sur {themeId}</h1>
       <form onSubmit={handleSubmit}>
-        {themeQuestions.map((question, index) => (
+        {questions.map((question, index) => (
           <div key={question.id} className="mb-4">
             <label htmlFor={`question-${question.id}`} className="form-label">{question.question}</label>
             <div className="d-flex justify-content-around">
