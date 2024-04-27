@@ -33,7 +33,6 @@ function App() {
             <Route path="/theme/:themeId" element={<ThemeStatistics />} />
             <Route path="/:themeId" element={<Questionnaire />} />
           </Routes>
-          <Footer />
         </div>
       </AuthProvider>
     </Router>
