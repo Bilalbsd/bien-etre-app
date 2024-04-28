@@ -54,4 +54,8 @@ Ce projet est une application de bien-être étudiant qui permet aux utilisateur
 npm test -- --config=jest.config.cjs
 
 
+### Test Backend
+
+npx mocha tests/routes.test.js
+
 Assurez-vous que MySQL est installé et en cours d'exécution sur votre machine. Vous devrez également configurer les informations de connexion à la base de données dans le fichier `config/db.config.js` du backend.
