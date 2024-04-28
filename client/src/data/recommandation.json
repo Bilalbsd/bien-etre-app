@@ -1,0 +1,124 @@
+{
+    "themes": [
+      {
+        "nom": "Alimentation",
+        "niveaux": [
+          {
+            "niveau": 1,
+            "phrase": "Prenez le temps de savourer chaque bouchée.",
+            "conseil": "Mangez lentement et soyez conscient de chaque bouchée. Cela peut vous aider à mieux apprécier votre nourriture et à reconnaître les signaux de satiété."
+          },
+          {
+            "niveau": 2,
+            "phrase": "Favorisez les aliments frais et colorés.",
+            "conseil": "Choisissez des aliments riches en nutriments et en couleurs vives. Ils fournissent une variété de vitamines et de minéraux essentiels à votre santé."
+          },
+          {
+            "niveau": 3,
+            "phrase": "La modération est la clé d'une alimentation équilibrée.",
+            "conseil": "Pratiquez la modération dans votre alimentation. Écoutez votre corps et nourrissez-le avec ce dont il a besoin sans excès."
+          },
+          {
+            "niveau": 4,
+            "phrase": "Cultivez une relation saine avec la nourriture.",
+            "conseil": "Identifiez les émotions qui déclenchent votre envie de manger. Apprenez des stratégies saines pour faire face au stress ou à l'ennui sans recourir à la nourriture."
+          },
+          {
+            "niveau": 5,
+            "phrase": "Nourrissez votre corps avec bienveillance et respect.",
+            "conseil": "Faites des choix alimentaires qui respectent vos besoins et vos valeurs. Traitez votre corps avec gentillesse et gratitude."
+          }
+        ]
+      },
+      {
+        "nom": "Sport",
+        "niveaux": [
+          {
+            "niveau": 1,
+            "phrase": "Commencez par des mouvements simples.",
+            "conseil": "Engagez-vous dans des activités physiques douces et accessibles. Même une courte promenade peut stimuler votre énergie et votre humeur."
+          },
+          {
+            "niveau": 2,
+            "phrase": "Trouvez un sport qui vous passionne.",
+            "conseil": "Essayez différents types d'activités physiques jusqu'à ce que vous trouviez celle qui vous motive et vous inspire. Aimer ce que vous faites rend l'exercice plus agréable."
+          },
+          {
+            "niveau": 3,
+            "phrase": "Faites de l'exercice une priorité dans votre quotidien.",
+            "conseil": "Planifiez des séances d'entraînement régulières dans votre emploi du temps. Traitez-les comme des rendez-vous importants que vous ne pouvez pas manquer."
+          },
+          {
+            "niveau": 4,
+            "phrase": "Explorez de nouveaux défis physiques.",
+            "conseil": "Sortez de votre zone de confort en essayant de nouveaux sports ou en vous fixant des objectifs de fitness ambitieux. Le progrès vient souvent en surmontant les défis."
+          },
+          {
+            "niveau": 5,
+            "phrase": "Votre corps est capable de réaliser des exploits incroyables.",
+            "conseil": "Faites confiance à votre corps et à ses capacités. Avec la pratique et la persévérance, vous pouvez atteindre des niveaux de performance que vous n'auriez jamais imaginés."
+          }
+        ]
+      },
+      {
+        "nom": "Cours",
+        "niveaux": [
+          {
+            "niveau": 1,
+            "phrase": "Apprenez quelque chose de nouveau chaque jour.",
+            "conseil": "Faites de la curiosité votre alliée. Cherchez des opportunités d'apprentissage dans les situations quotidiennes et restez ouvert aux nouvelles idées."
+          },
+          {
+            "niveau": 2,
+            "phrase": "Investissez dans votre développement personnel.",
+            "conseil": "Identifiez vos intérêts et vos objectifs d'apprentissage. Allouez du temps et des ressources pour acquérir de nouvelles compétences ou approfondir vos connaissances."
+          },
+          {
+            "niveau": 3,
+            "phrase": "La persévérance est la clé du succès académique.",
+            "conseil": "Soyez prêt à surmonter les obstacles et les revers dans votre parcours d'apprentissage. La détermination et la résilience vous aideront à atteindre vos objectifs."
+          },
+          {
+            "niveau": 4,
+            "phrase": "Cultivez une mentalité de croissance.",
+            "conseil": "Adoptez l'attitude selon laquelle vous pouvez toujours vous améliorer et grandir. Voyez les erreurs comme des occasions d'apprendre et de progresser."
+          },
+          {
+            "niveau": 5,
+            "phrase": "Votre potentiel est illimité lorsque vous investissez dans votre éducation.",
+            "conseil": "Continuez à chercher des opportunités d'apprentissage et d'expansion de vos horizons. Votre désir de savoir peut vous mener vers des sommets inimaginables."
+          }
+        ]
+      },
+      {
+        "nom": "Humeur",
+        "niveaux": [
+          {
+            "niveau": 1,
+            "phrase": "Reconnaissez et acceptez vos émotions.",
+            "conseil": "Prenez le temps de vous connecter avec vos émotions, même les plus difficiles. L'acceptation est le premier pas vers la gestion émotionnelle."
+          },
+          {
+            "niveau": 2,
+            "phrase": "Pratiquez la gratitude pour cultiver la joie.",
+            "conseil": "Chaque jour, faites une liste des choses pour lesquelles vous êtes reconnaissant. Cela peut vous aider à cultiver un sentiment de bonheur et de satisfaction."
+          },
+          {
+            "niveau": 3,
+            "phrase": "Trouvez l'équilibre entre travail et plaisir.",
+            "conseil": "Accordez-vous du temps pour vous détendre et vous amuser, même pendant les périodes chargées. L'équilibre entre le travail et les loisirs est essentiel pour maintenir une humeur positive."
+          },
+          {
+            "niveau": 4,
+            "phrase": "Pratiquez la compassion envers vous-même et les autres.",
+            "conseil": "Soyez gentil et compatissant envers vous-même, surtout lorsque vous traversez des moments difficiles. La bienveillance envers soi-même crée un fondement pour des relations saines avec les autres."
+          },
+          {
+            "niveau": 5,
+            "phrase": "Votre bien-être émotionnel est précieux. Prenez-en soin avec amour.",
+            "conseil": "Faites de votre santé émotionnelle une priorité. Cherchez du soutien lorsque vous en avez besoin et entourez-vous de personnes qui vous soutiennent et vous inspirent."
+          }
+        ]
+      }
+    ]
+  }
