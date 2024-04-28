@@ -63,12 +63,13 @@ const Statistics = () => {
 
     const lastResponse = storedResponses.length > 0 ? storedResponses[storedResponses.length - 1] : null;
     setLastQuestionnaire(lastResponse);
+    
 
-    console.log(reco[lastResponse.themeId]);
-
-    const recommandation = recommandations.themes[reco[lastResponse.themeId]].niveaux[Math.floor(calculateAverageScore(lastResponse.responses))];
-    setConseil(recommandation.conseil);
-    setPhrase(recommandation.phrase);
+    if(storedResponses.length > 0 && reco[lastResponse.themeId] in recommandations.themes) {
+      const recommandation = recommandations.themes[reco[lastResponse.themeId]].niveaux[Math.floor(calculateAverageScore(lastResponse.responses))];
+      setConseil(recommandation.conseil);
+      setPhrase(recommandation.phrase);
+    }
 
   }, [themes]);
 
@@ -84,8 +85,6 @@ const Statistics = () => {
       <h1 style={{ textAlign: 'center', fontSize: '35px', fontWeight: 'bold' }}>Statistiques</h1>
       <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
         {themes.map((theme) => (
-
-    
           <Link key={theme.id} to={`/theme/${theme.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div
               style={{
@@ -99,6 +98,14 @@ const Statistics = () => {
                 margin: '10px',
                 borderRadius: '10px',
                 cursor: 'pointer',
+                transition: 'background-color 0.3s ease', // Ajout de la transition
+              }}
+              // Ajout des événements onMouseEnter et onMouseLeave pour gérer le hover
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = 'darkgray';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = theme.color;
               }}
             >
               <p style={{ color: 'white', fontSize: '34px', textAlign: 'center', fontWeight: 'bold' }}>{theme.id.toUpperCase()}</p> {/* Taille de la police augmentée */}
@@ -118,11 +125,8 @@ const Statistics = () => {
           <h2 style={{ textAlign: 'center', fontSize: '35px', fontWeight: 'bold' }}>Dernier questionnaire :</h2>
           <p>Thème : {lastQuestionnaire.themeId}</p>
           <p>Score moyen des questions : {calculateAverageScore(lastQuestionnaire.responses)}</p>
-        </div>
-      )}
 
-
-      <div style={{ margin: '40px', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ margin: '40px', display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '100%' }}>
           <h2 style={{ marginBottom: '10px', fontSize: '2rem', justifyContent: 'center', textAlign: 'center' }}>Votre dernière recommandation</h2>
           <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
@@ -131,6 +135,11 @@ const Statistics = () => {
           </div>
         </div>
       </div>
+
+        </div>
+      )}
+
+    
     </div>
   );
 };
