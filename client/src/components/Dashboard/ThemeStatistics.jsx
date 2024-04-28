@@ -17,7 +17,7 @@ const ThemeStatistics = () => {
     const themeResponses = storedResponses.filter(response => response.themeId === themeId);
 
     if (themeResponses.length === 0) {
-      redirect('/' + themeId);
+      redirect('/dashboard' );
       return;
     }
    

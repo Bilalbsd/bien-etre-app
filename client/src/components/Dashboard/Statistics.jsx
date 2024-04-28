@@ -122,9 +122,8 @@ const Statistics = () => {
 
       {lastQuestionnaire && (
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
-          <h2 style={{ textAlign: 'center', fontSize: '35px', fontWeight: 'bold' }}>Dernier questionnaire :</h2>
+          <h2 style={{ textAlign: 'center', fontSize: '35px', fontWeight: 'bold', marginBottom: '20px' }}>Dernier questionnaire :</h2>
           <p>Thème : {lastQuestionnaire.themeId}</p>
-          <p>Score moyen des questions : {calculateAverageScore(lastQuestionnaire.responses)}</p>
 
           <div style={{ margin: '40px', display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '100%' }}>
